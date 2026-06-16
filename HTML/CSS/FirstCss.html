@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3 - HTML + Intro to CSS</title>
+
+    <!-- ===================== -->
+    <!--    INTERNAL CSS        -->
+    <!-- ===================== -->
+    <!-- CSS written inside <style> tag in the <head> -->
+
+    <style>
+
+      /* This targets the body element */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 40px;
+      }
+
+      /* This targets any element with class="box" */
+      .box {
+        background-color: white;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 24px;
+      }
+
+      /* This targets the element with id="main-heading" */
+      #main-heading {
+        color: #2c3e50;
+        text-align: center;
+      }
+
+      /* Targeting h2 elements */
+      h2 {
+        color: #8e44ad;
+        border-bottom: 2px solid #8e44ad;
+        padding-bottom: 6px;
+      }
+
+      /* Class for highlighted text */
+      .highlight {
+        background-color: yellow;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+
+      /* Class for red colored text */
+      .red {
+        color: red;
+      }
+
+      /* Class for green colored text */
+      .green {
+        color: green;
+      }
+
+      /* Styling links */
+      a {
+        color: #2980b9;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Styling the table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        border: 1px solid #ccc;
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #8e44ad;
+        color: white;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f0e6f6;
+      }
+
+      /* Footer styling */
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 14px;
+        color: #888;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ===================== -->
+    <!--     SPAN TAG           -->
+    <!-- ===================== -->
+    <!-- span is an inline element used to style part of a text -->
+
+    <h1 id="main-heading">Day 3 — HTML + Intro to <span style="color:#8e44ad;">CSS</span></h1>
+    <p style="text-align:center;">Learning how to make pages actually look good 🎨</p>
+
+    <!-- ===================== -->
+    <!--   CSS SELECTORS        -->
+    <!-- ===================== -->
+
+    <div class="box">
+      <h2>CSS Selectors</h2>
+      <p>There are 3 main ways to target elements in CSS:</p>
+      <ul>
+        <li><span class="highlight">element</span> — targets all elements of that type e.g. <code>p { }</code></li>
+        <li><span class="highlight">.class</span> — targets elements with that class e.g. <code>.box { }</code></li>
+        <li><span class="highlight">#id</span> — targets one specific element e.g. <code>#main-heading { }</code></li>
+      </ul>
+      <p class="red">This text is red because of the .red class.</p>
+      <p class="green">This text is green because of the .green class.</p>
+    </div>
+
+    <!-- ===================== -->
+    <!--    CSS BOX MODEL       -->
+    <!-- ===================== -->
+    <!-- Every element is a box with: margin, border, padding, content -->
+
+    <div class="box">
+      <h2>CSS Box Model</h2>
+      <p>Every HTML element is a box. The box has 4 layers:</p>
+      <ul>
+        <li><strong>Content</strong> — the actual text or image inside</li>
+        <li><strong>Padding</strong> — space between content and border (inside)</li>
+        <li><strong>Border</strong> — the outline around the element</li>
+        <li><strong>Margin</strong> — space outside the border (between elements)</li>
+      </ul>
+
+      <!-- Inline CSS to show box model visually -->
+      <div style="
+        margin: 20px;
+        border: 4px solid #8e44ad;
+        padding: 20px;
+        background-color: #f0e6f6;
+        text-align: center;
+        border-radius: 6px;
+      ">
+        I have margin, border and padding applied to me!
+      </div>
+    </div>
+
+    <!-- ===================== -->
+    <!--   CSS COLORS           -->
+    <!-- ===================== -->
+
+    <div class="box">
+      <h2>CSS Colors</h2>
+      <p>Colors in CSS can be written in 3 ways:</p>
+
+      <!-- Named color -->
+      <p style="color: tomato;">1. Named color: <code>color: tomato</code></p>
+
+      <!-- Hex color -->
+      <p style="color: #3498db;">2. Hex code: <code>color: #3498db</code></p>
+
+      <!-- RGB color -->
+      <p style="color: rgb(46, 204, 113);">3. RGB value: <code>color: rgb(46, 204, 113)</code></p>
+
+      <!-- Background color -->
+      <p style="background-color: #f39c12; padding: 8px; border-radius:4px; color:white;">
+        Background color: <code>background-color: #f39c12</code>
+      </p>
+    </div>
+
+    <!-- ===================== -->
+    <!--   CSS TEXT STYLING     -->
+    <!-- ===================== -->
+
+    <div class="box">
+      <h2>CSS Text Styling</h2>
+
+      <p style="font-size: 22px;">font-size: 22px — bigger text</p>
+      <p style="font-weight: bold;">font-weight: bold — bold text</p>
+      <p style="font-style: italic;">font-style: italic — italic text</p>
+      <p style="text-align: center;">text-align: center — centered text</p>
+      <p style="text-decoration: underline;">text-decoration: underline</p>
+      <p style="text-transform: uppercase;">text-transform: uppercase</p>
+      <p style="letter-spacing: 4px;">letter-spacing: 4px — spaced out</p>
+      <p style="line-height: 2;">line-height: 2 — more space between lines. This is useful for readability especially in longer paragraphs.</p>
+    </div>
+
+    <!-- ===================== -->
+    <!--   HTML ENTITIES        -->
+    <!-- ===================== -->
+    <!-- Special characters that HTML would otherwise misread -->
+
+    <div class="box">
+      <h2>HTML Entities</h2>
+      <p>Some characters need special codes in HTML:</p>
+      <ul>
+        <li><code>&amp;copy;</code> → &copy; (copyright)</li>
+        <li><code>&amp;amp;</code> → &amp; (ampersand)</li>
+        <li><code>&amp;lt;</code> → &lt; (less than)</li>
+        <li><code>&amp;gt;</code> → &gt; (greater than)</li>
+        <li><code>&amp;hearts;</code> → &hearts; (heart)</li>
+        <li><code>&amp;nbsp;</code> → non-breaking space (invisible but useful)</li>
+      </ul>
+    </div>
+
+    <!-- ===================== -->
+    <!--   STYLED TABLE         -->
+    <!-- ===================== -->
+
+    <div class="box">
+      <h2>Styled Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Topic</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Day 1</td>
+            <td>HTML Structure, Headings, Paragraphs</td>
+            <td class="green">✅ Done</td>
+          </tr>
+          <tr>
+            <td>Day 2</td>
+            <td>Semantic Tags, Forms, Tables, Links</td>
+            <td class="green">✅ Done</td>
+          </tr>
+          <tr>
+            <td>Day 3</td>
+            <td>CSS Selectors, Box Model, Colors, Text</td>
+            <td class="red">🟡 In Progress</td>
+          </tr>
+          <tr>
+            <td>Day 4</td>
+            <td>CSS Flexbox & Layout</td>
+            <td>⏳ Coming Soon</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ===================== -->
+    <!--   INLINE vs INTERNAL   -->
+    <!--   vs EXTERNAL CSS      -->
+    <!-- ===================== -->
+
+    <div class="box">
+      <h2>3 Ways to Write CSS</h2>
+      <ul>
+        <li>
+          <strong>Inline CSS</strong> — written directly on the element using <code>style=""</code>
+          <br />
+          <code>&lt;p style="color:red;"&gt;Hello&lt;/p&gt;</code>
+        </li>
+        <br />
+        <li>
+          <strong>Internal CSS</strong> — written inside a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code>
+          <br />
+          Used in this file! ☝️
+        </li>
+        <br />
+        <li>
+          <strong>External CSS</strong> — written in a separate <code>.css</code> file and linked using:
+          <br />
+          <code>&lt;link rel="stylesheet" href="style.css" /&gt;</code>
+          <br />
+          This is the most common and professional way. Coming soon! 🔜
+        </li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>Made with love by Sadia &copy; 2025 &hearts;</p>
+    </footer>
+
+  </body>
+</html>
