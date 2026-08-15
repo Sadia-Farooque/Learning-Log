@@ -1,6 +1,6 @@
 # 📓 Learning Log
 
-A personal log of my frontend learning journey — from HTML basics all the way to React — as I work toward building my own portfolio website.
+A personal log of my learning journey across programming and tech — from web development to machine learning and beyond.
 
 Every file here is a small practice session, a concept I explored, or a mini experiment. The goal is simple: **learn consistently, commit daily, and build something real.**
 
@@ -8,12 +8,12 @@ Every file here is a small practice session, a concept I explored, or a mini exp
 
 ## 🎯 Goal
 
-Build a fully functional **personal portfolio website** from scratch using:
+Grow as a developer by practicing across multiple areas, including:
 
-- HTML
-- CSS
-- JavaScript
-- React (and more as I go)
+- HTML, CSS, JavaScript, React
+- Python, NumPy, Pandas, Matplotlib
+- Machine Learning fundamentals
+- ...and whatever else I pick up along the way
 
 ---
 
@@ -21,11 +21,9 @@ Build a fully functional **personal portfolio website** from scratch using:
 
 ```
 Learning-Log/
-├── html/         # HTML fundamentals and practice
-├── css/          # Styling, layouts, flexbox, grid
-├── javascript/   # JS concepts and DOM practice
-├── react/        # Components, hooks, and beyond
-
+├── HTML/         # HTML/CSS fundamentals and practice
+├── ML/           # Machine learning labs and notebooks
+├── ...           # More topics as I explore them
 ```
 
 > Structure will grow as I progress.
@@ -34,12 +32,13 @@ Learning-Log/
 
 ## 📈 Progress
 
-| Topic        | Status        |
-|--------------|---------------|
-| HTML         | 🟡 In Progress |
-| CSS          | ⏳ Coming Soon |
-| JavaScript   | ⏳ Coming Soon |
-| React        | ⏳ Coming Soon |
+| Topic          | Status        |
+|-----------------|---------------|
+| HTML/CSS        | 🟡 In Progress |
+| JavaScript      | ⏳ Coming Soon |
+| React           | ⏳ Coming Soon |
+| Python          | 🟡 In Progress |
+| Machine Learning | 🟡 In Progress |
 
 ---
 
@@ -53,10 +52,10 @@ Learning-Log/
 
 ## 🙋‍♀️ About Me
 
-Hi, I'm **Sadia** — a CS student learning frontend development one commit at a time.
+Hi, I'm **Sadia** — a CS student learning and building one commit at a time.
 
 📌 [GitHub](https://github.com/Sadia-Farooque)
 
 ---
 
-*Started: June 2025 — ongoing*
+*Started: June 2026 — ongoing*
