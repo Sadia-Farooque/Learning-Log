@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Learning Log</title>
+</head>
+
+<body>
+
+  <header>
+    <h1>My Web Engineering Learning Log</h1>
+
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#tools">Tools</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <article id="about">
+      <h2>About Me</h2>
+
+      <p>
+        I am a Computer Science student learning Web Engineering
+        and building my foundation in modern web development.
+      </p>
+
+      <section id="skills">
+        <h3>Current Skills</h3>
+
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>What I Am Learning</h3>
+
+        <p>
+          I am currently focusing on writing clean HTML,
+          understanding semantic elements, and creating accessible forms.
+        </p>
+      </section>
+    </article>
+
+    <aside>
+      <h2>Currently Learning</h2>
+      <p>JavaScript and modern web development.</p>
+    </aside>
+
+
+    <!-- Contact Form -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+
+      <form action="#" method="post">
+
+        <div>
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            autocomplete="name"
+          >
+        </div>
+
+        <br>
+
+        <div>
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="you@example.com"
+          >
+        </div>
+
+        <br>
+
+        <div>
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+          >
+        </div>
+
+        <br>
+
+        <fieldset>
+          <legend>Preferred Track</legend>
+
+          <label>
+            <input type="radio" name="track" value="frontend">
+            Frontend
+          </label>
+
+          <label>
+            <input type="radio" name="track" value="backend">
+            Backend
+          </label>
+        </fieldset>
+
+        <br>
+
+        <div>
+          <label for="topic">Topic</label>
+
+          <select id="topic" name="topic">
+            <option value="">Choose one</option>
+            <option value="help">Help</option>
+            <option value="feedback">Feedback</option>
+          </select>
+        </div>
+
+        <br>
+
+        <div>
+          <label for="message">Message</label>
+
+          <br>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            cols="40"
+            placeholder="Write your message..."
+          ></textarea>
+        </div>
+
+        <br>
+
+        <label>
+          <input type="checkbox" name="terms" required>
+          I accept the terms
+        </label>
+
+        <br><br>
+
+        <button type="submit">Send Message</button>
+
+      </form>
+    </section>
+
+
+    <!-- Tools Table -->
+    <section id="tools">
+
+      <h2>My Development Tools</h2>
+
+      <table border="1">
+
+        <caption>My Current Tools and Comfort Level</caption>
+
+        <thead>
+          <tr>
+            <th scope="col">Tool</th>
+            <th scope="col">Comfort Level</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th scope="row">HTML</th>
+            <td>Strong</td>
+          </tr>
+
+          <tr>
+            <th scope="row">CSS</th>
+            <td>Beginner</td>
+          </tr>
+
+          <tr>
+            <th scope="row">JavaScript</th>
+            <td>Learning</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Git</th>
+            <td>Comfortable</td>
+          </tr>
+        </tbody>
+
+      </table>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 My Web Engineering Learning Log</p>
+  </footer>
+
+</body>
+</html>
