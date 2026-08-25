@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>My Learning Log</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: #222;
+            color: white;
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        section h2 {
+            margin-bottom: 15px;
+        }
+
+        section > div {
+            padding: 15px;
+            margin-top: 12px;
+            border-left: 4px solid #333;
+            background: #f8f8f8;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #222;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+        }
+    </style>
 </head>
+
 <body>
 
     <header>
@@ -13,130 +87,135 @@
     </header>
 
     <main>
+
         <section>
             <h2>Today's Learning</h2>
             <p>Today I practiced HTML, CSS, and JavaScript concepts.</p>
         </section>
 
         <section>
-            <h2>Topics</h2>
+            <h2>Learning Entries</h2>
 
-            <div>
-                <h3>HTML</h3>
-                <p>Learned about semantic structure and page organization.</p>
-            </div>
+            <div id="learningEntries"></div>
 
-            <div>
-                <h3>CSS</h3>
-                <p>Practiced styling, spacing, and layouts.</p>
-            </div>
-
-            <div>
-                <h3>JavaScript</h3>
-                <p>Started learning how JavaScript makes pages interactive.</p>
-            </div>
+            <button id="addEntry">Add Learning Entry</button>
         </section>
 
         <section>
             <h2>Progress</h2>
+
             <p id="progress">Learning in progress...</p>
-            <button id="progressButton">Update Progress</button>
+
+            <button id="progressButton">
+                Update Progress
+            </button>
         </section>
+
     </main>
 
     <footer>
         <p>Learning consistently, one concept at a time.</p>
     </footer>
 
-</body>
-</html>
 
-<style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    <script>
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
-        color: #222;
-        line-height: 1.6;
-    }
+        const progressText = document.getElementById("progress");
 
-    header {
-        text-align: center;
-        padding: 50px 20px;
-        background: #222;
-        color: white;
-    }
+        const progressButton =
+            document.getElementById("progressButton");
 
-    header h1 {
-        margin-bottom: 10px;
-    }
+        const learningEntries =
+            document.getElementById("learningEntries");
 
-    main {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 0 20px;
-    }
+        const addEntryButton =
+            document.getElementById("addEntry");
 
-    section {
-        background: white;
-        padding: 25px;
-        margin-bottom: 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
 
-    section h2 {
-        margin-bottom: 15px;
-    }
+        let completed = false;
 
-    section > div {
-        padding: 15px;
-        margin-top: 12px;
-        border-left: 4px solid #333;
-        background: #f8f8f8;
-    }
 
-    button {
-        margin-top: 15px;
-        padding: 10px 18px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        background: #222;
-        color: white;
-    }
+        const entries = [
+            {
+                topic: "HTML",
+                description:
+                    "Practiced semantic elements and page structure."
+            },
 
-    button:hover {
-        opacity: 0.8;
-    }
+            {
+                topic: "CSS",
+                description:
+                    "Learned about spacing, layouts, and visual styling."
+            },
 
-    footer {
-        text-align: center;
-        padding: 25px;
-        color: #666;
-    }
-</style>
+            {
+                topic: "JavaScript",
+                description:
+                    "Practiced DOM manipulation and event listeners."
+            }
+        ];
 
-<script>
-    const progressText = document.getElementById("progress");
-    const progressButton = document.getElementById("progressButton");
 
-    let completed = false;
+        function displayEntries() {
 
-    progressButton.addEventListener("click", function () {
-        completed = !completed;
+            learningEntries.innerHTML = "";
 
-        if (completed) {
-            progressText.textContent = "Today's learning session is complete!";
-            progressButton.textContent = "Mark As Incomplete";
-        } else {
-            progressText.textContent = "Learning in progress...";
-            progressButton.textContent = "Update Progress";
+            entries.forEach(function (entry) {
+
+                const card =
+                    document.createElement("div");
+
+                card.innerHTML = `
+                    <h3>${entry.topic}</h3>
+                    <p>${entry.description}</p>
+                `;
+
+                learningEntries.appendChild(card);
+            });
         }
-    });
-</script>
+
+
+        progressButton.addEventListener("click", function () {
+
+            completed = !completed;
+
+            if (completed) {
+
+                progressText.textContent =
+                    "Today's learning session is complete!";
+
+                progressButton.textContent =
+                    "Mark As Incomplete";
+
+            } else {
+
+                progressText.textContent =
+                    "Learning in progress...";
+
+                progressButton.textContent =
+                    "Update Progress";
+            }
+        });
+
+
+        addEntryButton.addEventListener("click", function () {
+
+            entries.push({
+
+                topic: "New Topic",
+
+                description:
+                    "A new learning entry was added."
+            });
+
+            displayEntries();
+        });
+
+
+        displayEntries();
+
+    </script>
+
+</body>
+
+</html>
