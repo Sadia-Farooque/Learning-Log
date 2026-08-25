@@ -121,3 +121,22 @@
         color: #666;
     }
 </style>
+
+<script>
+    const progressText = document.getElementById("progress");
+    const progressButton = document.getElementById("progressButton");
+
+    let completed = false;
+
+    progressButton.addEventListener("click", function () {
+        completed = !completed;
+
+        if (completed) {
+            progressText.textContent = "Today's learning session is complete!";
+            progressButton.textContent = "Mark As Incomplete";
+        } else {
+            progressText.textContent = "Learning in progress...";
+            progressButton.textContent = "Update Progress";
+        }
+    });
+</script>
