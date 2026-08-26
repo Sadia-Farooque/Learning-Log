@@ -79,25 +79,66 @@
 </style>
 
 <script>
-    const buttons = document.querySelectorAll("#taskList button");
+    const taskList = document.getElementById("taskList");
     const progress = document.getElementById("progress");
+
+    const taskInput = document.getElementById("taskInput");
+    const addTaskButton = document.getElementById("addTask");
 
     let completedTasks = 0;
 
-    buttons.forEach(function (button) {
+
+    function updateProgress() {
+
+        progress.textContent =
+            completedTasks + " tasks completed";
+    }
+
+
+    function createTask(taskName) {
+
+        const li = document.createElement("li");
+
+        const span = document.createElement("span");
+
+        span.textContent = taskName;
+
+        const button = document.createElement("button");
+
+        button.textContent = "Complete";
+
 
         button.addEventListener("click", function () {
 
             if (button.textContent === "Complete") {
 
                 button.textContent = "Completed";
+
                 completedTasks++;
 
-                progress.textContent =
-                    completedTasks + " tasks completed";
+                updateProgress();
             }
         });
 
+
+        li.appendChild(span);
+
+        li.appendChild(button);
+
+        taskList.appendChild(li);
+    }
+
+
+    addTaskButton.addEventListener("click", function () {
+
+        const taskName = taskInput.value.trim();
+
+        if (taskName !== "") {
+
+            createTask(taskName);
+
+            taskInput.value = "";
+        }
     });
 </script>
 
@@ -130,6 +171,18 @@
                 </li>
             </ul>
         </section>
+
+        <section>
+    <h2>Add a Task</h2>
+
+    <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter a new study task"
+    >
+
+    <button id="addTask">Add Task</button>
+</section>
 
         <section>
             <h2>Progress</h2>
