@@ -78,6 +78,29 @@
     }
 </style>
 
+<script>
+    const buttons = document.querySelectorAll("#taskList button");
+    const progress = document.getElementById("progress");
+
+    let completedTasks = 0;
+
+    buttons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            if (button.textContent === "Complete") {
+
+                button.textContent = "Completed";
+                completedTasks++;
+
+                progress.textContent =
+                    completedTasks + " tasks completed";
+            }
+        });
+
+    });
+</script>
+
 <body>
 
     <header>
