@@ -142,5 +142,130 @@
         <p>Learning by practicing concepts.</p>
     </footer>
 
+    <script>
+
+    const questions = [
+        {
+            question: "What does HTML stand for?",
+            options: [
+                "Hyper Text Markup Language",
+                "High Tech Machine Language",
+                "Hyperlink Text Management Language",
+                "Home Tool Markup Language"
+            ],
+            answer: 0
+        },
+
+        {
+            question: "Which language is mainly used to style webpages?",
+            options: [
+                "Python",
+                "CSS",
+                "C++",
+                "SQL"
+            ],
+            answer: 1
+        },
+
+        {
+            question: "Which language adds interactivity to webpages?",
+            options: [
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "XML"
+            ],
+            answer: 2
+        }
+    ];
+
+
+    let currentQuestion = 0;
+    let score = 0;
+
+
+    const questionElement =
+        document.getElementById("question");
+
+    const optionsElement =
+        document.getElementById("options");
+
+    const resultElement =
+        document.getElementById("result");
+
+    const scoreElement =
+        document.getElementById("score");
+
+    const nextButton =
+        document.getElementById("nextBtn");
+
+
+    function loadQuestion() {
+
+        const current = questions[currentQuestion];
+
+        questionElement.textContent = current.question;
+
+        optionsElement.innerHTML = "";
+
+        resultElement.textContent = "";
+
+        current.options.forEach(function (option, index) {
+
+            const button = document.createElement("button");
+
+            button.textContent = option;
+
+            button.addEventListener("click", function () {
+
+                if (index === current.answer) {
+
+                    resultElement.textContent =
+                        "Correct!";
+
+                    score++;
+
+                    scoreElement.textContent = score;
+
+                } else {
+
+                    resultElement.textContent =
+                        "Incorrect. Try the next question.";
+                }
+
+            });
+
+            optionsElement.appendChild(button);
+        });
+    }
+
+
+    nextButton.addEventListener("click", function () {
+
+        currentQuestion++;
+
+        if (currentQuestion < questions.length) {
+
+            loadQuestion();
+
+        } else {
+
+            questionElement.textContent =
+                "Quiz Complete!";
+
+            optionsElement.innerHTML = "";
+
+            resultElement.textContent =
+                `Final Score: ${score}/${questions.length}`;
+
+            nextButton.style.display = "none";
+        }
+    });
+
+
+    loadQuestion();
+
+</script>
+
 </body>
 </html>
