@@ -159,31 +159,45 @@
     let expenses = [];
 
 
-    function displayExpenses() {
+ <script>
+function displayExpenses() {
 
-        expenseList.innerHTML = "";
+    expenseList.innerHTML = "";
 
-        let totalAmount = 0;
-
-
-        expenses.forEach(function (expense) {
-
-            const item = document.createElement("li");
-
-            item.innerHTML = `
-                <span>${expense.name}</span>
-                <span>Rs. ${expense.amount}</span>
-            `;
-
-            expenseList.appendChild(item);
-
-            totalAmount += expense.amount;
-        });
+    let totalAmount = 0;
 
 
-        total.textContent =
-            "Rs. " + totalAmount;
-    }
+    expenses.forEach(function (expense, index) {
+
+        const item = document.createElement("li");
+
+        item.innerHTML = `
+            <span>
+                ${expense.name} - Rs. ${expense.amount}
+            </span>
+
+            <button onclick="deleteExpense(${index})">
+                Delete
+            </button>
+        `;
+
+        expenseList.appendChild(item);
+
+        totalAmount += expense.amount;
+    });
+
+
+    total.textContent = "Rs. " + totalAmount;
+}
+
+
+function deleteExpense(index) {
+
+    expenses.splice(index, 1);
+
+    displayExpenses();
+}
+</script>
 
 
     addExpense.addEventListener("click", function () {
