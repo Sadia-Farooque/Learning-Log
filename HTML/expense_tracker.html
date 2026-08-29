@@ -138,5 +138,85 @@
         <p>Built while learning JavaScript.</p>
     </footer>
 
+    <script>
+
+    const expenseName =
+        document.getElementById("expenseName");
+
+    const expenseAmount =
+        document.getElementById("expenseAmount");
+
+    const addExpense =
+        document.getElementById("addExpense");
+
+    const expenseList =
+        document.getElementById("expenseList");
+
+    const total =
+        document.getElementById("total");
+
+
+    let expenses = [];
+
+
+    function displayExpenses() {
+
+        expenseList.innerHTML = "";
+
+        let totalAmount = 0;
+
+
+        expenses.forEach(function (expense) {
+
+            const item = document.createElement("li");
+
+            item.innerHTML = `
+                <span>${expense.name}</span>
+                <span>Rs. ${expense.amount}</span>
+            `;
+
+            expenseList.appendChild(item);
+
+            totalAmount += expense.amount;
+        });
+
+
+        total.textContent =
+            "Rs. " + totalAmount;
+    }
+
+
+    addExpense.addEventListener("click", function () {
+
+        const name = expenseName.value.trim();
+
+        const amount =
+            Number(expenseAmount.value);
+
+
+        if (name === "" || amount <= 0) {
+
+            alert("Please enter a valid expense.");
+
+            return;
+        }
+
+
+        expenses.push({
+            name: name,
+            amount: amount
+        });
+
+
+        expenseName.value = "";
+
+        expenseAmount.value = "";
+
+
+        displayExpenses();
+    });
+
+</script>
+
 </body>
 </html>
