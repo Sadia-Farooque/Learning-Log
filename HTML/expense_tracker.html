@@ -2,104 +2,114 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Expense Tracker</title>
+
     <style>
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f8;
-        color: #222;
-        line-height: 1.6;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+            line-height: 1.6;
+        }
 
-    header {
-        text-align: center;
-        background: #222;
-        color: white;
-        padding: 45px 20px;
-    }
+        header {
+            text-align: center;
+            background: #222;
+            color: white;
+            padding: 45px 20px;
+        }
 
-    header h1 {
-        margin-bottom: 8px;
-    }
+        header h1 {
+            margin-bottom: 8px;
+        }
 
-    main {
-        max-width: 650px;
-        margin: 40px auto;
-        padding: 20px;
-    }
+        main {
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 20px;
+        }
 
-    section {
-        background: white;
-        padding: 25px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
+        section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-    input {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 12px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-    }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
 
-    button {
-        padding: 11px 18px;
-        border: none;
-        border-radius: 6px;
-        background: #222;
-        color: white;
-        cursor: pointer;
-    }
+        button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+        }
 
-    button:hover {
-        opacity: 0.8;
-    }
+        button:hover {
+            opacity: 0.8;
+        }
 
-    li {
-        list-style: none;
-        padding: 14px;
-        margin-bottom: 10px;
-        background: #f3f4f6;
-        border-radius: 6px;
-        display: flex;
-        justify-content: space-between;
-    }
+        li {
+            list-style: none;
+            padding: 14px;
+            margin-bottom: 10px;
+            background: #f3f4f6;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
 
-    #total {
-        font-size: 30px;
-        font-weight: bold;
-    }
+        #total {
+            font-size: 30px;
+            font-weight: bold;
+        }
 
-    footer {
-        text-align: center;
-        padding: 25px;
-        color: #666;
-    }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+        }
 
-</style>
+    </style>
+
 </head>
 
 <body>
 
     <header>
+
         <h1>Expense Tracker</h1>
+
         <p>Keep track of your daily spending.</p>
+
     </header>
+
 
     <main>
 
         <section>
+
             <h2>Add Expense</h2>
 
             <input
@@ -114,123 +124,142 @@
                 placeholder="Amount"
             >
 
-            <button id="addExpense">Add Expense</button>
+            <button id="addExpense">
+                Add Expense
+            </button>
+
         </section>
 
 
         <section>
+
             <h2>Expenses</h2>
 
             <ul id="expenseList"></ul>
+
         </section>
 
 
         <section>
+
             <h2>Total Spent</h2>
 
             <p id="total">Rs. 0</p>
+
         </section>
 
     </main>
 
 
     <footer>
+
         <p>Built while learning JavaScript.</p>
+
     </footer>
+
 
     <script>
 
-    const expenseName =
-        document.getElementById("expenseName");
+        const expenseName =
+            document.getElementById("expenseName");
 
-    const expenseAmount =
-        document.getElementById("expenseAmount");
+        const expenseAmount =
+            document.getElementById("expenseAmount");
 
-    const addExpense =
-        document.getElementById("addExpense");
+        const addExpense =
+            document.getElementById("addExpense");
 
-    const expenseList =
-        document.getElementById("expenseList");
+        const expenseList =
+            document.getElementById("expenseList");
 
-    const total =
-        document.getElementById("total");
-
-
-    let expenses = [];
+        const total =
+            document.getElementById("total");
 
 
- <script>
-function displayExpenses() {
-
-    expenseList.innerHTML = "";
-
-    let totalAmount = 0;
+        let expenses = [];
 
 
-    expenses.forEach(function (expense, index) {
+        function displayExpenses() {
 
-        const item = document.createElement("li");
+            expenseList.innerHTML = "";
 
-        item.innerHTML = `
-            <span>
-                ${expense.name} - Rs. ${expense.amount}
-            </span>
-
-            <button onclick="deleteExpense(${index})">
-                Delete
-            </button>
-        `;
-
-        expenseList.appendChild(item);
-
-        totalAmount += expense.amount;
-    });
+            let totalAmount = 0;
 
 
-    total.textContent = "Rs. " + totalAmount;
-}
+            expenses.forEach(function (expense, index) {
+
+                const item =
+                    document.createElement("li");
 
 
-function deleteExpense(index) {
+                item.innerHTML = `
+                    <span>
+                        ${expense.name} - Rs. ${expense.amount}
+                    </span>
 
-    expenses.splice(index, 1);
-
-    displayExpenses();
-}
-</script>
-
-
-    addExpense.addEventListener("click", function () {
-
-        const name = expenseName.value.trim();
-
-        const amount =
-            Number(expenseAmount.value);
+                    <button onclick="deleteExpense(${index})">
+                        Delete
+                    </button>
+                `;
 
 
-        if (name === "" || amount <= 0) {
+                expenseList.appendChild(item);
 
-            alert("Please enter a valid expense.");
+                totalAmount += expense.amount;
 
-            return;
+            });
+
+
+            total.textContent =
+                "Rs. " + totalAmount;
         }
 
 
-        expenses.push({
-            name: name,
-            amount: amount
+        function deleteExpense(index) {
+
+            expenses.splice(index, 1);
+
+            displayExpenses();
+        }
+
+
+        addExpense.addEventListener("click", function () {
+
+            const name =
+                expenseName.value.trim();
+
+            const amount =
+                Number(expenseAmount.value);
+
+
+            if (name === "" || amount <= 0) {
+
+                alert("Please enter a valid expense.");
+
+                return;
+            }
+
+
+            expenses.push({
+
+                name: name,
+
+                amount: amount
+
+            });
+
+
+            expenseName.value = "";
+
+            expenseAmount.value = "";
+
+
+            displayExpenses();
+
         });
 
-
-        expenseName.value = "";
-
-        expenseAmount.value = "";
-
-
-        displayExpenses();
-    });
-
-</script>
+    </script>
 
 </body>
+
 </html>
