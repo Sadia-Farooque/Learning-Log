@@ -190,9 +190,16 @@
             minutes: minutes
         };
 
-        sessions.push(session);
+       sessions.push(session);
 
-        const listItem = document.createElement("li");
+const totalMinutes = sessions.reduce(function(total, session) {
+    return total + session.minutes;
+}, 0);
+
+document.getElementById("totalTime").textContent =
+    totalMinutes + " minutes";
+
+const listItem = document.createElement("li");
 
         listItem.textContent =
             session.subject + " - " + session.minutes + " minutes";
