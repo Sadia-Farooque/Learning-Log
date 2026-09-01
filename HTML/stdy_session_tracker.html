@@ -167,6 +167,43 @@
 
     </footer>
 
+    <script>
+    const subjectInput = document.getElementById("subject");
+    const minutesInput = document.getElementById("minutes");
+    const addButton = document.getElementById("addSession");
+    const sessionList = document.getElementById("sessionList");
+
+    let sessions = [];
+
+    addButton.addEventListener("click", function () {
+
+        const subject = subjectInput.value.trim();
+        const minutes = Number(minutesInput.value);
+
+        if (subject === "" || minutes <= 0) {
+            alert("Please enter a subject and valid study minutes.");
+            return;
+        }
+
+        const session = {
+            subject: subject,
+            minutes: minutes
+        };
+
+        sessions.push(session);
+
+        const listItem = document.createElement("li");
+
+        listItem.textContent =
+            session.subject + " - " + session.minutes + " minutes";
+
+        sessionList.appendChild(listItem);
+
+        subjectInput.value = "";
+        minutesInput.value = "";
+    });
+</script>
+
 
 </body>
 
