@@ -143,18 +143,19 @@
 
             <ul id="sessionList"></ul>
 
-        </section>
-
-
         <section>
 
-            <h2>Total Study Time</h2>
+    <h2>Study Summary</h2>
 
-            <p id="totalTime">
-                0 minutes
-            </p>
+    <p id="totalTime">
+        0 minutes
+    </p>
 
-        </section>
+    <p id="sessionCount">
+        0 sessions
+    </p>
+
+</section>
 
     </main>
 
@@ -167,21 +168,70 @@
 
     </footer>
 
-    <script>
+   <script>
     const subjectInput = document.getElementById("subject");
     const minutesInput = document.getElementById("minutes");
     const addButton = document.getElementById("addSession");
     const sessionList = document.getElementById("sessionList");
+    const totalTime = document.getElementById("totalTime");
+    const sessionCount = document.getElementById("sessionCount");
 
     let sessions = [];
 
-    addButton.addEventListener("click", function () {
+    function displaySessions() {
+
+        sessionList.innerHTML = "";
+
+        sessions.forEach(function(session, index) {
+
+            const listItem = document.createElement("li");
+
+            listItem.textContent =
+                session.subject + " - " + session.minutes + " minutes ";
+
+            const deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "Delete";
+
+            deleteButton.addEventListener("click", function() {
+
+                sessions.splice(index, 1);
+
+                displaySessions();
+            });
+
+            listItem.appendChild(deleteButton);
+
+            sessionList.appendChild(listItem);
+        });
+
+        updateSummary();
+    }
+
+
+    function updateSummary() {
+
+        const totalMinutes = sessions.reduce(function(total, session) {
+            return total + session.minutes;
+        }, 0);
+
+        totalTime.textContent =
+            totalMinutes + " minutes";
+
+        sessionCount.textContent =
+            sessions.length + " sessions";
+    }
+
+
+    addButton.addEventListener("click", function() {
 
         const subject = subjectInput.value.trim();
         const minutes = Number(minutesInput.value);
 
         if (subject === "" || minutes <= 0) {
+
             alert("Please enter a subject and valid study minutes.");
+
             return;
         }
 
@@ -190,21 +240,9 @@
             minutes: minutes
         };
 
-       sessions.push(session);
+        sessions.push(session);
 
-const totalMinutes = sessions.reduce(function(total, session) {
-    return total + session.minutes;
-}, 0);
-
-document.getElementById("totalTime").textContent =
-    totalMinutes + " minutes";
-
-const listItem = document.createElement("li");
-
-        listItem.textContent =
-            session.subject + " - " + session.minutes + " minutes";
-
-        sessionList.appendChild(listItem);
+        displaySessions();
 
         subjectInput.value = "";
         minutesInput.value = "";
